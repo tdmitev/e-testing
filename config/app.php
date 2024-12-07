@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('LogiXpert Test System', 'Laravel'),
+    'name' => env('APP_NAME', 'e-Testing'),
 
     /*
     |--------------------------------------------------------------------------
