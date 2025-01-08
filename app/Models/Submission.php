@@ -16,6 +16,12 @@ class Submission extends Model
         'submitted_at',
     ];
 
+    protected $casts = [
+        'started_at' => 'datetime',
+        'submitted_at' => 'datetime',
+        'time_taken' => 'integer',
+    ];
+
     public function test()
     {
         return $this->belongsTo(Test::class);

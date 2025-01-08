@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        
+        $this->call(TeacherSeeder::class);
+
         $teacher = User::factory()->create([
             'name' => 'Teacher User',
             'email' => 'teacher@example.com',
@@ -22,12 +23,10 @@ class DatabaseSeeder extends Seeder
             'role' => 'teacher',
         ]);
 
-       
         $students = User::factory(5)->create([
             'role' => 'student',
         ]);
 
-       
         $tests = Test::factory(3)
             ->has(
                 Question::factory(5)
@@ -39,7 +38,6 @@ class DatabaseSeeder extends Seeder
                 'created_by' => $teacher->id, 
             ]);
 
-        
         foreach ($students as $student) {
             foreach ($tests as $test) {
                 $submission = Submission::create([
